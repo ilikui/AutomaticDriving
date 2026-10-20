@@ -11,6 +11,7 @@
 | LAB-003 | 一维多传感器融合 | Python 3.10+ 标准库 | 用逆方差加权融合合成观测，比较 RMSE |
 | LAB-004 | Pure Pursuit 几何路径跟踪 | Python 3.10+ 标准库 | 理解前视目标、曲率与转向角关系 |
 | LAB-005 | 鲁棒一维传感器融合 | Python 3.10+ 标准库 | 使用中位数 / MAD 门限识别粗大异常值，再按方差加权 |
+| LAB-006 | CARLA 场景复现与回归测试 | CARLA / Scenario Runner | 固定版本、种子、场景与指标，保留失败案例 |
 | LAB-005 | CARLA 场景复现与指标记录 | CARLA | 固定场景、随机种子与版本，建立回归测试 |
 
 ## LAB-001：一维匀速 Kalman Filter
@@ -77,6 +78,12 @@ python -m unittest discover -s labs/python -p 'test_*.py' -v
 ```
 
 自动化测试：仓库的 [Python Labs GitHub Actions](../.github/workflows/python-labs.yml) 会在相关代码推送和 Pull Request 时，使用 Python 3.11 与 3.12 执行单元测试并运行实验脚本。
+
+## LAB-006：CARLA 场景复现与回归测试
+
+配置记录模板：[`carla/scenario-template.yaml`](carla/scenario-template.yaml)；完整方法：[`docs/carla-reproducibility.md`](../docs/carla-reproducibility.md)。
+
+这一项先建立可复现的实验规范，不假装在当前环境中已经运行 CARLA。记录 CARLA / Scenario Runner 版本、地图、天气、同步模式、固定步长、随机种子、交通参与者、传感器参数、终止条件与指标定义。每次优先只改变一个变量；碰撞、超时和越线等失败案例也要保留。运行前请按实际版本把模板字段映射到 CARLA 原生配置。
 
 ## 实验记录模板
 
