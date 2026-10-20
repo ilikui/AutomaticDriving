@@ -12,7 +12,8 @@
 - **阅读论文与复现算法**：查看 [论文与研究方向](docs/papers-and-research.md)。
 - **查找公开数据集**：查看 [数据集与评测基准](docs/datasets-and-benchmarks.md)。
 - **按问题系统学习**：查看 [自动驾驶 1000 问](docs/1000-questions.md)，用问题串联概念、工程与论文。
-- **运行算法小实验**：查看 [可运行实验](labs/README.md)，包含 Kalman Filter、坐标变换、基础 / 鲁棒传感器融合和 Pure Pursuit；[Python Labs CI](.github/workflows/python-labs.yml) 会自动运行测试。
+- **运行算法小实验**：查看 [可运行实验](labs/README.md)，包含 Kalman Filter、坐标变换、基础 / 鲁棒传感器融合、Pure Pursuit 与 CARLA 场景复现；[Python Labs CI](.github/workflows/python-labs.yml) 会自动运行测试。
+- **建立仿真回归**：参考 [CARLA 场景复现指南](docs/carla-reproducibility.md)，统一记录版本、随机种子、场景和评价指标。
 
 ![Python Labs CI](https://github.com/ilikui/AutomaticDriving/actions/workflows/python-labs.yml/badge.svg?branch=main)
 
