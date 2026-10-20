@@ -7,8 +7,8 @@
 | 编号 | 实验 | 依赖 | 目标 |
 |---|---|---|---|
 | LAB-001 | 一维匀速模型 + Kalman Filter | Python 3.10+ 标准库 | 理解预测、观测更新与估计误差 |
-| LAB-002 | 坐标系变换与外参检查 | 规划中 | 验证变换方向、单位和逆变换 |
-| LAB-003 | 传感器时间同步误差模拟 | 规划中 | 观察时延对目标位置融合的影响 |
+| LAB-002 | 2D 坐标系变换与外参检查 | Python 3.10+ 标准库 | 验证变换方向、单位、矩阵组合和逆变换 |
+| LAB-003 | 一维多传感器融合 | Python 3.10+ 标准库 | 用逆方差加权融合合成观测，比较 RMSE |
 | LAB-004 | Pure Pursuit 路径跟踪 | 规划中 | 对比前视距离对横向误差的影响 |
 | LAB-005 | CARLA 场景复现与指标记录 | CARLA | 固定场景、随机种子与版本，建立回归测试 |
 
@@ -24,6 +24,32 @@ python -m unittest discover -s labs/python -p 'test_*.py' -v
 ```
 
 实验会生成确定性的合成观测，输出每一步的真实位置、观测值、估计值与误差。它是用于理解状态估计的教学模型，不是可直接用于车辆定位的生产实现。
+
+## LAB-002：二维坐标系变换
+
+代码：[`python/coordinate_transform_2d.py`](python/coordinate_transform_2d.py)，测试：[`python/test_coordinate_transform_2d.py`](python/test_coordinate_transform_2d.py)。
+
+采用约定：`T_parent_child` 将 child 坐标系中的点变换到 parent 坐标系。示例覆盖平移、旋转、矩阵组合和逆变换。自动驾驶工程中必须明确坐标系命名、变换方向、角度单位和长度单位；不能只凭矩阵数值猜测方向。
+
+运行：
+
+```bash
+python labs/python/coordinate_transform_2d.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
+
+## LAB-003：一维多传感器融合
+
+代码：[`python/sensor_fusion_1d.py`](python/sensor_fusion_1d.py)，测试：[`python/test_sensor_fusion_1d.py`](python/test_sensor_fusion_1d.py)。
+
+以合成的相机距离测量和雷达距离测量为例，按测量方差的倒数加权，输出单传感器与融合估计的 RMSE。这个实验假设测量无偏、相互独立，并且观测的是同一个已对齐标量；它**没有**实现目标关联、坐标转换、时间同步或异常值抑制，不能直接代表真实的相机—雷达融合系统。
+
+运行：
+
+```bash
+python labs/python/sensor_fusion_1d.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
 
 ## 实验记录模板
 
