@@ -1,0 +1,61 @@
+# Educational scenario record template; not a native CARLA config.
+# Copy this file per experiment and record actual versions and parameters.
+experiment:
+  id: "carla-baseline-001"
+  purpose: "Record a reproducible baseline before changing one variable"
+  git_commit: "REPLACE_WITH_COMMIT_SHA"
+  carla_version: "RECORD_EXACT_VERSION"
+  scenario_runner_version: "RECORD_EXACT_VERSION"
+  map: "Town03"
+  synchronous_mode: true
+  fixed_delta_seconds: 0.05
+  random_seed: 2026
+
+environment:
+  weather: "ClearNoon"
+  traffic_manager_seed: 2026
+  vehicle_count: 10
+  pedestrian_count: 0
+  route_id: "REPLACE_WITH_ROUTE_ID"
+
+ego_vehicle:
+  blueprint: "vehicle.tesla.model3"
+  initial_transform: "RECORD_X_Y_Z_ROLL_PITCH_YAW"
+  target_speed_mps: 8.0
+
+sensors:
+  - name: "front_camera"
+    type: "sensor.camera.rgb"
+    transform: "RECORD_SENSOR_EXTRINSICS"
+    attributes:
+      image_size_x: 1280
+      image_size_y: 720
+      fov: 90
+  - name: "front_lidar"
+    type: "sensor.lidar.ray_cast"
+    transform: "RECORD_SENSOR_EXTRINSICS"
+    attributes:
+      channels: 32
+      points_per_second: 56000
+      rotation_frequency: 10
+      range: 50
+
+termination:
+  max_simulation_seconds: 120
+  stop_on_collision: false
+  success_condition: "DEFINE_EXPLICIT_SUCCESS_CONDITION"
+
+metrics:
+  - "success_or_failure"
+  - "collision_count"
+  - "minimum_ttc_seconds_with_method"
+  - "lateral_error_mean_p95_max_m"
+  - "heading_error_mean_p95_max_deg"
+  - "simulation_wall_clock_seconds"
+  - "real_time_factor"
+
+artifacts:
+  manifest: "runs/<run-id>/manifest.json"
+  metrics: "runs/<run-id>/metrics.json"
+  events: "runs/<run-id>/events.jsonl"
+  notes: "runs/<run-id>/notes.md"
