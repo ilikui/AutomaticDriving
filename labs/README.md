@@ -10,6 +10,7 @@
 | LAB-002 | 2D 坐标系变换与外参检查 | Python 3.10+ 标准库 | 验证变换方向、单位、矩阵组合和逆变换 |
 | LAB-003 | 一维多传感器融合 | Python 3.10+ 标准库 | 用逆方差加权融合合成观测，比较 RMSE |
 | LAB-004 | Pure Pursuit 几何路径跟踪 | Python 3.10+ 标准库 | 理解前视目标、曲率与转向角关系 |
+| LAB-005 | 鲁棒一维传感器融合 | Python 3.10+ 标准库 | 使用中位数 / MAD 门限识别粗大异常值，再按方差加权 |
 | LAB-005 | CARLA 场景复现与指标记录 | CARLA | 固定场景、随机种子与版本，建立回归测试 |
 
 ## LAB-001：一维匀速 Kalman Filter
@@ -63,6 +64,19 @@ python -m unittest discover -s labs/python -p 'test_*.py' -v
 python labs/python/pure_pursuit.py
 python -m unittest discover -s labs/python -p 'test_*.py' -v
 ```
+
+## LAB-005：鲁棒一维传感器融合
+
+代码：[`python/sensor_fusion_robust.py`](python/sensor_fusion_robust.py)，测试：[`python/test_sensor_fusion_robust.py`](python/test_sensor_fusion_robust.py)。
+
+在 LAB-003 的逆方差加权基线前加入中位数与 MAD（median absolute deviation）异常值门限，并报告接受的观测索引、融合估计和方差。适用于理解“先做质量门控，再做估计”的思路；样本很少时鲁棒统计能力有限，阈值需要依据传感器噪声和场景校准。此例不处理目标关联、时间同步、坐标对齐或相关噪声。
+
+```bash
+python labs/python/sensor_fusion_robust.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
+
+自动化测试：仓库的 [Python Labs GitHub Actions](../.github/workflows/python-labs.yml) 会在相关代码推送和 Pull Request 时，使用 Python 3.11 与 3.12 执行单元测试并运行实验脚本。
 
 ## 实验记录模板
 
