@@ -12,7 +12,9 @@
 - **阅读论文与复现算法**：查看 [论文与研究方向](docs/papers-and-research.md)。
 - **查找公开数据集**：查看 [数据集与评测基准](docs/datasets-and-benchmarks.md)。
 - **按问题系统学习**：查看 [自动驾驶 1000 问](docs/1000-questions.md)，用问题串联概念、工程与论文。
-- **运行算法小实验**：查看 [可运行实验](labs/README.md)，从无第三方依赖的 Kalman Filter 入门。
+- **运行算法小实验**：查看 [可运行实验](labs/README.md)，包含 Kalman Filter、坐标变换、基础 / 鲁棒传感器融合和 Pure Pursuit；[Python Labs CI](.github/workflows/python-labs.yml) 会自动运行测试。
+
+![Python Labs CI](https://github.com/ilikui/AutomaticDriving/actions/workflows/python-labs.yml/badge.svg?branch=main)
 
 ## 技术栈总览
 
