@@ -39,4 +39,5 @@ jobs:
           python labs/python/kalman_1d.py
           python labs/python/coordinate_transform_2d.py
           python labs/python/sensor_fusion_1d.py
+          python labs/python/sensor_fusion_robust.py
           python labs/python/pure_pursuit.py
