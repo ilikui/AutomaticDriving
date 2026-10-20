@@ -9,7 +9,7 @@
 | LAB-001 | 一维匀速模型 + Kalman Filter | Python 3.10+ 标准库 | 理解预测、观测更新与估计误差 |
 | LAB-002 | 2D 坐标系变换与外参检查 | Python 3.10+ 标准库 | 验证变换方向、单位、矩阵组合和逆变换 |
 | LAB-003 | 一维多传感器融合 | Python 3.10+ 标准库 | 用逆方差加权融合合成观测，比较 RMSE |
-| LAB-004 | Pure Pursuit 路径跟踪 | 规划中 | 对比前视距离对横向误差的影响 |
+| LAB-004 | Pure Pursuit 几何路径跟踪 | Python 3.10+ 标准库 | 理解前视目标、曲率与转向角关系 |
 | LAB-005 | CARLA 场景复现与指标记录 | CARLA | 固定场景、随机种子与版本，建立回归测试 |
 
 ## LAB-001：一维匀速 Kalman Filter
@@ -48,6 +48,19 @@ python -m unittest discover -s labs/python -p 'test_*.py' -v
 
 ```bash
 python labs/python/sensor_fusion_1d.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
+
+## LAB-004：Pure Pursuit 几何路径跟踪
+
+代码：[`python/pure_pursuit.py`](python/pure_pursuit.py)，测试：[`python/test_pure_pursuit.py`](python/test_pure_pursuit.py)。
+
+实现前视目标点选择、车辆坐标系变换、几何曲率和前轮转角计算，并提供简单运动学自行车模型演示。当前示例用于理解几何关系，不包含速度自适应前视距离、执行器延迟、转向限幅、道路边界约束或真实车辆动力学。
+
+运行：
+
+```bash
+python labs/python/pure_pursuit.py
 python -m unittest discover -s labs/python -p 'test_*.py' -v
 ```
 
