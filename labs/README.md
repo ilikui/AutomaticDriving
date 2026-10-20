@@ -12,6 +12,8 @@
 | LAB-004 | Pure Pursuit 几何路径跟踪 | Python 3.10+ 标准库 | 理解前视目标、曲率与转向角关系 |
 | LAB-005 | 鲁棒一维传感器融合 | Python 3.10+ 标准库 | 使用中位数 / MAD 门限识别粗大异常值，再按方差加权 |
 | LAB-006 | CARLA 场景复现与回归测试 | CARLA / Scenario Runner | 固定版本、种子、场景与指标，保留失败案例 |
+| LAB-007 | Pure Pursuit 前视距离扫描 | Python 3.10+ 标准库 | 比较固定 / 速度自适应前视距离的横向误差趋势 |
+| LAB-008 | 时间同步门控与相关噪声融合 | Python 3.10+ 标准库 | 拒绝时间偏差过大的观测，并比较独立 / 相关噪声下的估计方差 |
 | LAB-005 | CARLA 场景复现与指标记录 | CARLA | 固定场景、随机种子与版本，建立回归测试 |
 
 ## LAB-001：一维匀速 Kalman Filter
@@ -84,6 +86,30 @@ python -m unittest discover -s labs/python -p 'test_*.py' -v
 配置记录模板：[`carla/scenario-template.yaml`](carla/scenario-template.yaml)；完整方法：[`docs/carla-reproducibility.md`](../docs/carla-reproducibility.md)。
 
 这一项先建立可复现的实验规范，不假装在当前环境中已经运行 CARLA。记录 CARLA / Scenario Runner 版本、地图、天气、同步模式、固定步长、随机种子、交通参与者、传感器参数、终止条件与指标定义。每次优先只改变一个变量；碰撞、超时和越线等失败案例也要保留。运行前请按实际版本把模板字段映射到 CARLA 原生配置。
+
+## LAB-007：Pure Pursuit 前视距离扫描
+
+代码：[`python/pure_pursuit_sweep.py`](python/pure_pursuit_sweep.py)，测试：[`python/test_pure_pursuit_sweep.py`](python/test_pure_pursuit_sweep.py)。
+
+在合成正弦道路上，对不同车速比较固定前视距离与速度自适应前视距离，输出横向误差 RMSE、最大误差和有效样本数。此实验用于观察参数趋势，不应预设自适应策略必然更优；结果受路径、离散采样、模型和参数范围影响。
+
+```bash
+python labs/python/pure_pursuit_sweep.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
+
+## LAB-008：时间同步门控与相关噪声融合
+
+代码：[`python/sensor_fusion_timing_covariance.py`](python/sensor_fusion_timing_covariance.py)，测试：[`python/test_sensor_fusion_timing_covariance.py`](python/test_sensor_fusion_timing_covariance.py)。
+
+第一部分检查观测时间戳的最大偏差是否超过阈值；超过时拒绝融合。它只实现门控，不做插值、运动补偿或时钟漂移估计。第二部分使用已知的两传感器协方差，计算最佳线性无偏标量估计。正相关意味着两路观测共享部分信息，融合收益通常小于错误地假设两者独立时的收益。
+
+```bash
+python labs/python/sensor_fusion_timing_covariance.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
+
+协方差必须来自合理的噪声模型或数据估计；错误协方差可能让结果比单传感器更差。该示例仍不包含目标关联、跨坐标系变换或完整的多目标跟踪。
 
 ## 实验记录模板
 
