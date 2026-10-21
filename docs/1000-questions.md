@@ -30,6 +30,37 @@ flowchart TD
   J --> J1[ROS 2 / Autoware / Apollo]
 ```
 
+## 问题—文档—实验关联索引
+
+建议按“问题 → 理论文档 → 最小实验 → 结果记录”的顺序学习。当前实验是简化模型，用于验证局部概念，并不等于完整自动驾驶系统。
+
+| 问题范围 | 建议先查阅 | 可运行实验 / 验证入口 |
+|---|---|---|
+| 1–10：系统与数学基础 | [学习路线](learning-roadmap.md)、[资源导航](resources.md) | [坐标变换 LAB-002](../labs/python/coordinate_transform_2d.py)、[实验总览](../labs/README.md) |
+| 11–20：传感器、标定与同步 | [数据集与评测](datasets-and-benchmarks.md)、[开源工程实践](open-source-projects.md) | [坐标变换 LAB-002](../labs/python/coordinate_transform_2d.py)、[时间同步 LAB-008](../labs/python/sensor_fusion_timing_covariance.py) |
+| 21–30：定位与建图 | [论文与研究方向](papers-and-research.md)、[数据集与评测](datasets-and-benchmarks.md) | [Kalman Filter LAB-001](../labs/python/kalman_1d.py)；当前仓库尚无完整 SLAM 实现 |
+| 31–40：环境感知 | [论文与研究方向](papers-and-research.md)、[资源导航](resources.md) | [数据集与评测协议](datasets-and-benchmarks.md)；当前基础实验不包含深度学习检测器 |
+| 41–50：多传感器融合 | [融合研究主题](papers-and-research.md)、[数据集与评测](datasets-and-benchmarks.md) | [基础融合 LAB-003](../labs/python/sensor_fusion_1d.py)、[鲁棒融合 LAB-005](../labs/python/sensor_fusion_robust.py)、[时间与协方差 LAB-008](../labs/python/sensor_fusion_timing_covariance.py) |
+| 51–60：预测与规划 | [论文与研究方向](papers-and-research.md)、[CommonRoad 资源](resources.md) | [CARLA 复现指南](carla-reproducibility.md)；当前无独立轨迹预测模型实验 |
+| 61–70：控制与车辆动力学 | [学习路线](learning-roadmap.md)、[开源工程实践](open-source-projects.md) | [Pure Pursuit LAB-004](../labs/python/pure_pursuit.py)、[参数扫描 LAB-007](../labs/python/pure_pursuit_sweep.py) |
+| 71–80：数据集、仿真与评测 | [数据集与评测基准](datasets-and-benchmarks.md)、[CARLA 复现指南](carla-reproducibility.md) | [场景模板](../labs/carla/scenario-template.yaml)、[实验记录模板](../labs/README.md) |
+| 81–90：软件架构与部署 | [开源工程实践](open-source-projects.md)、[资源导航](resources.md) | 当前仓库提供概念与工程导航，尚无 ROS 2 / Autoware / Apollo 部署实验 |
+| 91–100：安全与研究方法 | [论文与研究方向](papers-and-research.md)、[贡献规范](../CONTRIBUTING.md) | [CARLA 复现指南](carla-reproducibility.md)、[CI 工作流](../.github/workflows/python-labs.yml) |
+| 101–150：调试、数据质量与复现 | [CARLA 复现指南](carla-reproducibility.md)、[数据集与评测](datasets-and-benchmarks.md) | [全部实验与测试命令](../labs/README.md)；优先保留失败样例并记录配置版本 |
+
+```mermaid
+flowchart LR
+    Q[问题编号] --> D[理论与官方资料]
+    D --> H[提出可检验假设]
+    H --> L[最小实验或场景]
+    L --> T[测试与指标]
+    T --> R[记录结果、失败案例和局限]
+    R --> N[关联下一个问题]
+    N --> Q
+```
+
+注意：关联到某个实验表示它能帮助理解局部原理，不代表它已经覆盖该问题的全部工程复杂度。特别是感知网络、SLAM、完整规划器和功能安全流程，仍需结合相应项目、数据集、标准及专门验证。
+
 ## 01. 基础知识与数学
 
 1. 自动驾驶系统通常由哪些子系统组成？
