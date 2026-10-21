@@ -152,7 +152,7 @@ flowchart TB
 - **仿真与场景测试**：[CARLA](https://github.com/carla-simulator/carla) · [CARLA 文档](https://carla.readthedocs.io/) · [Scenario Runner](https://github.com/carla-simulator/scenario_runner)
 - **机器人中间件**：[ROS 2 官方教程](https://docs.ros.org/en/rolling/Tutorials.html)
 - **三维感知框架**：[OpenPCDet](https://github.com/open-mmlab/OpenPCDet) · [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)
-- **公开数据集**：[KITTI](https://www.cvlibs.net/datasets/kitti/) · [nuScenes](https://www.nuscenes.org/) · [Waymo Open Dataset](https://waymo.com/open/)
+- **公开数据集**：[KITTI](https://www.cvlibs.net/datasets/kitti/) · [SemanticKITTI](https://semantic-kitti.org/) · [Cityscapes](https://www.cityscapes-dataset.com/) · [nuScenes](https://www.nuscenes.org/) · [Waymo Open Dataset](https://waymo.com/open/) · [ONCE](https://once-for-auto-driving.github.io/) · [PandaSet](https://scale.com/open-datasets/pandaset) · [Zenseact Open Dataset](https://zod.zenseact.com/) · 更多见 [数据集与评测基准](docs/datasets-and-benchmarks.md)
 
 以上链接用于学习与研究导航。具体功能、维护状态、版本兼容性和使用许可，请以各项目发布的官方说明为准。
 
