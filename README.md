@@ -214,7 +214,9 @@ AutomaticDriving/
 │   │   ├── automatic-driving-banner.svg
 │   │   ├── sensor-fusion-flow.svg
 │   │   ├── learning-roadmap.svg
-│   │   └── carla-validation-loop.svg
+│   │   ├── carla-validation-loop.svg
+│   │   ├── research-topic-map.svg
+│   │   └── dataset-selection.svg
 │   ├── learning-roadmap.md
 │   ├── resources.md
 │   ├── open-source-projects.md
