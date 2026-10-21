@@ -6,6 +6,10 @@
 [![Python 3.11](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 [![Documentation](https://img.shields.io/badge/Docs-Chinese-1f6feb)](docs/)
 
+<p align="center">
+  <img src="docs/assets/automatic-driving-banner.svg" alt="AutomaticDriving：自动驾驶知识、算法实践与工程验证" width="100%" />
+</p>
+
 AutomaticDriving 是一个面向自动驾驶学习者、算法研究人员与工程开发者的中文知识库。仓库围绕自动驾驶技术栈，持续整理学习路线、官方文档、开源工程、论文与数据集，并通过可运行的 Python 小实验，将核心概念转化为可检查、可复现的实践内容。
 
 项目采用**循序学习、优先引用一手资料、实验过程可追溯、结论边界明确**的维护原则。它既是系统化学习入口，也是一套逐步完善的算法实验与仿真验证工作台。
@@ -155,6 +159,25 @@ flowchart TB
 ## 可运行实验
 
 当前实验以小规模、可检查的示例为主，目的是帮助理解算法原理和验证基础行为，不代表完整的量产级实现。
+
+<p align="center">
+  <img src="docs/assets/sensor-fusion-flow.svg" alt="传感器融合实验流程：观测、时间对齐、质量检查、融合与指标评估" width="100%" />
+</p>
+
+### 从问题到可复现实验
+
+```mermaid
+flowchart LR
+    A[定义问题与假设] --> B[准备数据与基线]
+    B --> C[实现最小算法]
+    C --> D[单元测试与边界检查]
+    D --> E[运行实验并记录指标]
+    E --> F{结果可复现？}
+    F -- 是 --> G[记录结论与局限]
+    F -- 否 --> H[定位差异与失败案例]
+    H --> C
+    G --> I[持续集成与回归验证]
+```
 
 | 实验主题 | 主要内容 | 入口 |
 |---|---|---|
