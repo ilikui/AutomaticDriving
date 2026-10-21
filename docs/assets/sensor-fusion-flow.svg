@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="300" viewBox="0 0 1100 300" role="img" aria-labelledby="title desc">
+  <title id="title">Sensor fusion experiment flow</title>
+  <desc id="desc">Camera and radar observations pass through time alignment and quality gates, then covariance-aware fusion, producing an estimate and evaluation metrics.</desc>
+  <rect width="1100" height="300" rx="18" fill="#f7fafc"/>
+  <text x="34" y="38" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#142235">Sensor Fusion · Experiment Flow</text>
+  <g font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+    <rect x="35" y="78" width="170" height="70" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/><text x="120" y="108" font-size="17" font-weight="700" fill="#075985">Camera</text><text x="120" y="130" font-size="13" fill="#075985">observation</text>
+    <rect x="35" y="174" width="170" height="70" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="120" y="204" font-size="17" font-weight="700" fill="#166534">Radar</text><text x="120" y="226" font-size="13" fill="#166534">observation</text>
+    <rect x="280" y="120" width="170" height="82" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/><text x="365" y="151" font-size="16" font-weight="700" fill="#9a3412">Time alignment</text><text x="365" y="174" font-size="13" fill="#9a3412">timestamp gate</text>
+    <rect x="525" y="120" width="170" height="82" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="610" y="151" font-size="16" font-weight="700" fill="#92400e">Quality checks</text><text x="610" y="174" font-size="13" fill="#92400e">outlier / covariance</text>
+    <rect x="770" y="120" width="140" height="82" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="840" y="151" font-size="16" font-weight="700" fill="#5b21b6">Fusion</text><text x="840" y="174" font-size="13" fill="#5b21b6">state estimate</text>
+    <rect x="950" y="120" width="120" height="82" rx="12" fill="#e2e8f0" stroke="#475569" stroke-width="2"/><text x="1010" y="151" font-size="15" font-weight="700" fill="#1e293b">Evaluate</text><text x="1010" y="174" font-size="13" fill="#1e293b">RMSE / limits</text>
+  </g>
+  <g fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M205 113H240Q255 113 255 128V150H276"/><path d="M205 209H240Q255 209 255 194V172H276"/><path d="m268 144 8 6-8 6"/><path d="M450 161H521"/><path d="m513 155 8 6-8 6"/><path d="M695 161H766"/><path d="m758 155 8 6-8 6"/><path d="M910 161H946"/><path d="m938 155 8 6-8 6"/></g>
+  <text x="550" y="275" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#475569">Teaching model only · verify assumptions, units, timing, and correlated noise before interpreting results</text>
+</svg>
