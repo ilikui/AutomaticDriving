@@ -210,6 +210,9 @@ AutomaticDriving/
 ├── README.md
 ├── CONTRIBUTING.md
 ├── docs/
+│   ├── assets/
+│   │   ├── automatic-driving-banner.svg
+│   │   └── sensor-fusion-flow.svg
 │   ├── learning-roadmap.md
 │   ├── resources.md
 │   ├── open-source-projects.md
