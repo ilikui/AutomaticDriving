@@ -61,3 +61,52 @@
 4. **维护情况**：近期提交、开放问题、兼容矩阵和发布版本。
 5. **适用边界**：仿真结果、离线指标和真实道路表现不能互相替代。
 6. **许可证**：代码许可证与数据集使用条款分别核验。
+
+
+## 8. 值得跟进的 GitHub 工程与研究代码
+
+以下项目用于建立代码阅读路线。它们的依赖、模型权重、数据访问方式和许可证各不相同；开始前请先查看项目主页、最新 release、安装指南和 LICENSE，不要默认所有代码及权重均可商用。
+
+### 3D 感知与多传感器融合
+
+- [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)：点云 3D 检测工具箱，适合从数据配置、模型构建到评测脚本逐层阅读。
+- [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)：统一的 3D 检测研究框架，适合对照不同模型与数据集适配方式。
+- [BEVFusion](https://github.com/mit-han-lab/bevfusion)：相机与 LiDAR 融合、BEV 表征相关研究代码。
+- [CenterPoint](https://github.com/tianweiy/CenterPoint)：基于中心点表征的 3D 检测与跟踪研究实现。
+- [TransFusion](https://github.com/XuyangBai/TransFusion)：面向 3D 检测的多模态融合研究方向。
+
+### 端到端驾驶与规划研究
+
+- [OpenDriveLab](https://github.com/OpenDriveLab)：自动驾驶、端到端驾驶与相关研究项目集合，适合沿组织主页发现项目。
+- [UniAD](https://github.com/OpenDriveLab/UniAD)：统一自动驾驶任务建模的研究项目；需核对当前代码、权重与数据许可。
+- [nuPlan](https://github.com/motional/nuplan-devkit)：面向规划研究的开发工具与评测工作流。
+- [CommonRoad](https://github.com/CommonRoad)：车辆运动规划、场景描述与可验证规划相关工具。
+- [Frenetix](https://github.com/CommonRoad)：CommonRoad 生态中的采样式轨迹规划工具项目；使用前核对当前维护状态和接口。
+
+### 仿真、场景与测试
+
+- [CARLA](https://github.com/carla-simulator/carla)：开源驾驶仿真器。
+- [Scenario Runner](https://github.com/carla-simulator/scenario_runner)：CARLA 场景执行与测试工具。
+- [CommonRoad Scenario Designer](https://github.com/CommonRoad/commonroad-scenario-designer)：道路网络和场景转换、编辑相关工具。
+- [ASAM OpenSCENARIO](https://www.asam.net/standards/detail/openscenario/)：场景描述标准入口；注意 OpenSCENARIO 不同版本与 XML/DSL 生态的区别。
+
+### 机器人中间件与系统集成
+
+- [ROS 2](https://github.com/ros2/ros2)：机器人中间件相关源代码入口；初学者优先阅读官方教程。
+- [Autoware](https://github.com/autowarefoundation/autoware)：基于 ROS 2 生态的自动驾驶软件栈。
+- [Apollo](https://github.com/ApolloAuto/apollo)：自动驾驶软件栈与配套工具。
+- [Lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2)：道路语义地图与车道网络处理。
+
+### 建议的代码阅读顺序
+
+```mermaid
+flowchart TD
+    A["跑通官方最小示例"] --> B["理解数据格式与配置"]
+    B --> C["追踪输入 / 输出接口"]
+    C --> D["运行官方基线与评测"]
+    D --> E["复现一个小改动"]
+    E --> F["添加测试并记录指标"]
+    F --> G["对比失败案例与限制"]
+```
+
+不要仅按 GitHub Star 数判断项目质量。应综合考察论文与代码是否对应、版本是否可运行、评测脚本是否完整、Issue 是否有维护响应、许可证是否适合自己的用途，以及结果能否在相同协议下复现。
