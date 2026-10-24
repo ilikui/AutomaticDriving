@@ -2,7 +2,7 @@
 ### 从零开始理解自动驾驶：路线图 · 开源项目 · 数据集 · 算法实验
 
 <p align="center">
-  <img src="docs/assets/automatic-driving-banner.svg" alt="AutomaticDriving learning roadmap" width="100%" />
+  <img src="docs/assets/automatic-driving-banner.svg?v=2" alt="AutomaticDriving learning roadmap" width="100%" />
 </p>
 
 <p align="center">
