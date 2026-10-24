@@ -17,7 +17,7 @@
 | 专题 | 对应问题 | 专题指南 |
 |---|---:|---|
 | 基础、数学与传感器 | 1–20、102、111–115 | [基础与传感器](questions/foundations-and-sensors.md) |
-| 感知与多传感器融合 | 31–50、116–120、143–145 | [感知与融合](questions/perception-and-fusion.md) |
+| 感知与多传感器融合 | 31–50、116–120、143–145 | [感知与融合](questions/perception-and-fusion.md)、[第 41–50 题逐题详解](questions/sensor-fusion-answers-41-50.md) |
 | 定位与建图 | 21–30、114–115 | [定位与建图](questions/localization-and-mapping.md) |
 | 预测、规划与控制 | 51–70、124–130 | [预测、规划与控制](questions/prediction-planning-control.md) |
 | 仿真、评测与工程验证 | 71–100、101–110、121–123、131–142、146–150 | [仿真与工程验证](questions/simulation-evaluation-engineering.md) |
