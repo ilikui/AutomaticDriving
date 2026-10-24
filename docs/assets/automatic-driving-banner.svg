@@ -1,34 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
-  <title id="title">AutomaticDriving — Autonomous Driving Engineering</title>
-  <desc id="desc">A technical illustration of a road, autonomous vehicle, sensor waves, and connected perception-planning-control blocks.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="440" viewBox="0 0 1600 440" role="img" aria-labelledby="title desc">
+  <title id="title">AutomaticDriving — Explore Autonomous Driving</title>
+  <desc id="desc">A redesigned high-contrast banner showing an autonomous vehicle on a digital road with perception, planning, control, and simulation signals.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#172f4a"/></linearGradient>
-    <linearGradient id="road" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#263548"/><stop offset="1" stop-color="#40556b"/></linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071426"/><stop offset=".55" stop-color="#102c4b"/><stop offset="1" stop-color="#183b55"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8f9"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
+    <linearGradient id="car" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#8bdcff" stroke-opacity=".10"/></pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
-  <rect width="1200" height="320" rx="22" fill="url(#bg)"/>
-  <g opacity=".16" stroke="#8ed8ff" stroke-width="1"><path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200"/><path d="M100 0V320M200 0V320M300 0V320M400 0V320M500 0V320M600 0V320M700 0V320M800 0V320M900 0V320M1000 0V320M1100 0V320"/></g>
-  <text x="58" y="76" fill="#83dcff" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4">LEARN · BUILD · VALIDATE</text>
-  <text x="56" y="132" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="43" font-weight="700">AutomaticDriving</text>
-  <text x="58" y="168" fill="#c8d8e8" font-family="Arial,Helvetica,sans-serif" font-size="20">Autonomous driving knowledge &amp; reproducible experiments</text>
-  <g transform="translate(60 210)" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700">
-    <rect width="150" height="38" rx="19" fill="#123d56" stroke="#47c7e8"/><text x="75" y="24" text-anchor="middle" fill="#a9efff">PERCEPTION</text>
-    <path d="M158 19h26" stroke="#83dcff" stroke-width="2"/><path d="m178 13 7 6-7 6" fill="none" stroke="#83dcff" stroke-width="2"/>
-    <rect x="190" width="150" height="38" rx="19" fill="#123d56" stroke="#47c7e8"/><text x="265" y="24" text-anchor="middle" fill="#a9efff">PLANNING</text>
-    <path d="M348 19h26" stroke="#83dcff" stroke-width="2"/><path d="m368 13 7 6-7 6" fill="none" stroke="#83dcff" stroke-width="2"/>
-    <rect x="380" width="150" height="38" rx="19" fill="#123d56" stroke="#47c7e8"/><text x="455" y="24" text-anchor="middle" fill="#a9efff">CONTROL</text>
+  <rect width="1600" height="440" rx="28" fill="url(#bg)"/><rect width="1600" height="440" rx="28" fill="url(#grid)"/>
+  <circle cx="1330" cy="110" r="230" fill="#0ea5e9" opacity=".10"/><circle cx="1110" cy="360" r="180" fill="#8b5cf6" opacity=".10"/>
+  <text x="76" y="78" fill="#67e8f9" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" letter-spacing="5">OPEN LEARNING · ENGINEERING · EXPERIMENTS</text>
+  <text x="72" y="157" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="58" font-weight="800">AUTONOMOUS</text><text x="72" y="220" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="58" font-weight="800">DRIVING <tspan fill="#67e8f9">LAB</tspan></text>
+  <text x="76" y="263" fill="#c7d9eb" font-family="Arial,Helvetica,sans-serif" font-size="21">从原理到开源工程，从算法到可复现实验</text>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700">
+    <rect x="76" y="300" width="142" height="42" rx="21" fill="#0b3d56" stroke="#38bdf8"/><text x="147" y="326" text-anchor="middle" fill="#bff5ff">PERCEPTION</text>
+    <rect x="232" y="300" width="142" height="42" rx="21" fill="#0b3d56" stroke="#38bdf8"/><text x="303" y="326" text-anchor="middle" fill="#bff5ff">PLANNING</text>
+    <rect x="388" y="300" width="142" height="42" rx="21" fill="#0b3d56" stroke="#38bdf8"/><text x="459" y="326" text-anchor="middle" fill="#bff5ff">CONTROL</text>
+    <rect x="544" y="300" width="142" height="42" rx="21" fill="#0b3d56" stroke="#38bdf8"/><text x="615" y="326" text-anchor="middle" fill="#bff5ff">SIMULATION</text>
   </g>
-  <g transform="translate(760 42)">
-    <path d="M70 245 150 58h160l80 187" fill="none" stroke="#72889e" stroke-width="2" stroke-dasharray="7 9"/>
-    <path d="M110 245 175 58h110l65 187" fill="none" stroke="url(#road)" stroke-width="100"/>
-    <path d="M110 245 175 58h110l65 187" fill="none" stroke="#d5e5f4" stroke-width="2" stroke-dasharray="12 13" opacity=".8"/>
-    <g transform="translate(184 147)">
-      <path d="M-54 34-45 3-27-14H27L45 3 54 34 42 48H-42Z" fill="#56c9e9" stroke="#e5faff" stroke-width="2"/>
-      <path d="M-28-9H28L39 8H-39Z" fill="#18344d"/><rect x="-48" y="16" width="13" height="12" rx="3" fill="#e5faff"/><rect x="35" y="16" width="13" height="12" rx="3" fill="#e5faff"/>
-      <circle cx="-33" cy="43" r="9" fill="#091321" stroke="#9eb5c8" stroke-width="3"/><circle cx="33" cy="43" r="9" fill="#091321" stroke="#9eb5c8" stroke-width="3"/>
-      <path d="M-43-18Q0-54 43-18M-58-28Q0-78 58-28" fill="none" stroke="#65e0ff" stroke-width="2.5" opacity=".9"/>
+  <g transform="translate(930 30)">
+    <path d="M35 370 L180 42 L440 42 L590 370" fill="none" stroke="#7dd3fc" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M125 370 L230 42 L390 42 L500 370" fill="none" stroke="#284b69" stroke-width="130"/>
+    <path d="M125 370 L230 42 M500 370 L390 42" fill="none" stroke="#9bdcf4" stroke-opacity=".6" stroke-width="3" stroke-dasharray="12 15"/>
+    <path d="M312 365 L312 275 L312 210 L312 142" fill="none" stroke="#67e8f9" stroke-width="4" stroke-dasharray="7 8" filter="url(#glow)"/>
+    <g transform="translate(312 236)">
+      <ellipse cx="0" cy="65" rx="100" ry="22" fill="#020817" opacity=".55"/>
+      <path d="M-77 28 L-64 -22 Q-58 -42 -37 -48 L37 -48 Q58 -42 64 -22 L77 28 L62 48 L-62 48 Z" fill="url(#car)" stroke="#e0f2fe" stroke-width="3"/>
+      <path d="M-48 -22 Q-40 -37 -27 -38 L27 -38 Q40 -37 48 -22 L56 -3 L-56 -3 Z" fill="#15344e" stroke="#bae6fd" stroke-width="2"/>
+      <path d="M-69 12 H-49 M49 12 H69" stroke="#0c4a6e" stroke-width="8" stroke-linecap="round"/>
+      <rect x="-61" y="25" width="24" height="8" rx="4" fill="#fef3c7"/><rect x="37" y="25" width="24" height="8" rx="4" fill="#fef3c7"/>
+      <circle cx="-49" cy="43" r="13" fill="#020817" stroke="#64748b" stroke-width="4"/><circle cx="49" cy="43" r="13" fill="#020817" stroke="#64748b" stroke-width="4"/>
+      <path d="M-70 -47 Q0 -100 70 -47 M-94 -59 Q0 -132 94 -59" fill="none" stroke="#67e8f9" stroke-width="3" opacity=".9"/>
     </g>
-    <g fill="#83dcff"><circle cx="184" cy="93" r="4"/><circle cx="150" cy="77" r="3"/><circle cx="220" cy="70" r="3"/><circle cx="126" cy="112" r="2.5"/><circle cx="247" cy="112" r="2.5"/></g>
-    <path d="M185 90 95 48H40" fill="none" stroke="#83dcff" stroke-width="1.5"/><text x="40" y="39" fill="#bceeff" font-family="Arial,Helvetica,sans-serif" font-size="13">SENSOR FUSION</text>
-    <path d="M237 158 330 135h50" fill="none" stroke="#83dcff" stroke-width="1.5"/><text x="304" y="125" fill="#bceeff" font-family="Arial,Helvetica,sans-serif" font-size="13">PATH PLANNING</text>
+    <g fill="#67e8f9" filter="url(#glow)"><circle cx="312" cy="96" r="5"/><circle cx="252" cy="120" r="4"/><circle cx="372" cy="120" r="4"/><circle cx="220" cy="164" r="3"/><circle cx="404" cy="164" r="3"/></g>
+    <path d="M245 126 L160 92 L90 92" fill="none" stroke="#67e8f9" stroke-width="2"/><text x="90" y="80" fill="#a5f3fc" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="2">SENSOR FUSION</text>
+    <path d="M375 214 L485 185 L550 185" fill="none" stroke="#67e8f9" stroke-width="2"/><text x="440" y="172" fill="#a5f3fc" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="2">REAL-TIME DECISION</text>
   </g>
+  <text x="76" y="397" fill="#7f9db8" font-family="Arial,Helvetica,sans-serif" font-size="14" letter-spacing="2">LEARN THE STACK. TRACE THE DATA. VERIFY THE RESULT.</text>
 </svg>
