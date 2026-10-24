@@ -143,8 +143,9 @@ flowchart TB
 | [数据集与评测基准](docs/datasets-and-benchmarks.md) | 公开数据集、评价指标与使用注意事项 | 设计实验和比较结果 |
 | [自动驾驶 1000 问](docs/1000-questions.md) | 按主题组织的工程问题与思考问题 | 构建问题驱动的知识体系 |
 | [可运行实验](labs/README.md) | 实验索引、运行命令与记录方法 | 理解算法并验证实现 |
-| [CARLA 场景复现指南](docs/carla-reproducibility.md) | 场景配置、指标记录与回归流程 | 规划可复现的仿真实验 |
-| [贡献与维护原则](CONTRIBUTING.md) | 内容组织、提交与维护规范 | 参与完善知识库 |
+| [CARLA 场景复现指南](docs/carla-reproducibility.md) | 场景配置、指标记录与回归流程 | 规划可复现的仿真实验 |\n| [工程实践手册](docs/engineering-playbook.md) | 模块接口检查、融合、控制、故障定位与实验记录 | 工程化学习与排查问题 |\n| [数据集选型矩阵](docs/dataset-selection-matrix.md) | 数据集任务映射、评测指标与数据使用清单 | 研究选题与评测设计 |
+| [贡献与维护原则](CONTRIBUTING.md) | 内容组织、提交与维护规范 | 参与完善知识库 |\n| [工程实践手册](docs/engineering-playbook.md) | 模块接口、传感器融合、控制算法、调试流程与实验模板 | 从概念学习进阶到工程验证 |
+| [数据集选型与评测矩阵](docs/dataset-selection-matrix.md) | 按任务选数据集、常见指标、许可检查与评测流程 | 选择研究数据并建立可比较基线 |
 
 ### 官方项目与一手资料
 
@@ -152,7 +153,7 @@ flowchart TB
 - **仿真与场景测试**：[CARLA](https://github.com/carla-simulator/carla) · [CARLA 文档](https://carla.readthedocs.io/) · [Scenario Runner](https://github.com/carla-simulator/scenario_runner)
 - **机器人中间件**：[ROS 2 官方教程](https://docs.ros.org/en/rolling/Tutorials.html)
 - **三维感知框架**：[OpenPCDet](https://github.com/open-mmlab/OpenPCDet) · [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)
-- **公开数据集**：[KITTI](https://www.cvlibs.net/datasets/kitti/) · [SemanticKITTI](https://semantic-kitti.org/) · [Cityscapes](https://www.cityscapes-dataset.com/) · [nuScenes](https://www.nuscenes.org/) · [Waymo Open Dataset](https://waymo.com/open/) · [ONCE](https://once-for-auto-driving.github.io/) · [PandaSet](https://scale.com/open-datasets/pandaset) · [Zenseact Open Dataset](https://zod.zenseact.com/) · 更多见 [数据集与评测基准](docs/datasets-and-benchmarks.md)
+- **公开数据集**：[KITTI](https://www.cvlibs.net/datasets/kitti/) · [SemanticKITTI](https://semantic-kitti.org/) · [Cityscapes](https://www.cityscapes-dataset.com/) · [nuScenes](https://www.nuscenes.org/) · [Waymo Open Dataset](https://waymo.com/open/) · [Argoverse 2](https://www.argoverse.org/av2.html) · [BDD100K](https://www.vis.xyz/bdd100k/) · [ONCE](https://once-for-auto-driving.github.io/) · [PandaSet](https://scale.com/open-datasets/pandaset) · [Zenseact Open Dataset](https://zod.zenseact.com/) · [DAIR-V2X](https://thudair.baai.ac.cn/) · [Oxford RobotCar](https://robotcar-dataset.robots.ox.ac.uk/) · 更多见 [数据集总览](docs/datasets-and-benchmarks.md) 与 [选型矩阵](docs/dataset-selection-matrix.md)
 
 以上链接用于学习与研究导航。具体功能、维护状态、版本兼容性和使用许可，请以各项目发布的官方说明为准。
 
