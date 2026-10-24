@@ -1,267 +1,190 @@
-# AutomaticDriving
-
-**自动驾驶学习、算法实践与工程验证知识库**
-
-[![Python Labs CI](https://github.com/ilikui/AutomaticDriving/actions/workflows/python-labs.yml/badge.svg?branch=main)](https://github.com/ilikui/AutomaticDriving/actions/workflows/python-labs.yml)
-[![Python 3.11](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
-[![Documentation](https://img.shields.io/badge/Docs-Chinese-1f6feb)](docs/)
+# AutomaticDriving 🚗
+### 从零开始理解自动驾驶：路线图 · 开源项目 · 数据集 · 算法实验
 
 <p align="center">
-  <img src="docs/assets/automatic-driving-banner.svg" alt="AutomaticDriving：自动驾驶知识、算法实践与工程验证" width="100%" />
+  <img src="docs/assets/automatic-driving-banner.svg" alt="AutomaticDriving learning roadmap" width="100%" />
 </p>
 
-AutomaticDriving 是一个面向自动驾驶学习者、算法研究人员与工程开发者的中文知识库。仓库围绕自动驾驶技术栈，持续整理学习路线、官方文档、开源工程、论文与数据集，并通过可运行的 Python 小实验，将核心概念转化为可检查、可复现的实践内容。
+<p align="center">
+  <b>把复杂的自动驾驶拆成容易理解、可以动手、能够验证的小问题。</b>
+</p>
 
-项目采用**循序学习、优先引用一手资料、实验过程可追溯、结论边界明确**的维护原则。它既是系统化学习入口，也是一套逐步完善的算法实验与仿真验证工作台。
+<p align="center">
+  <a href="docs/learning-roadmap.md">学习路线</a> ·
+  <a href="docs/resources.md">GitHub 优质资源</a> ·
+  <a href="docs/open-source-projects.md">开源项目实战</a> ·
+  <a href="docs/1000-questions.md">自动驾驶 1000 问</a> ·
+  <a href="labs/README.md">动手实验</a>
+</p>
 
-> **当前重点：** 自动驾驶知识体系建设、基础算法实验、单元测试与持续集成，以及 CARLA 场景复现方法整理。
+[![Python Labs CI](https://github.com/ilikui/AutomaticDriving/actions/workflows/python-labs.yml/badge.svg?branch=main)](https://github.com/ilikui/AutomaticDriving/actions/workflows/python-labs.yml)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
+![Docs](https://img.shields.io/badge/Docs-Chinese-1f6feb)
+![Learning](https://img.shields.io/badge/Focus-Learn%20by%20Doing-success)
 
 ---
 
-## 目录
+## 👋 这个仓库是做什么的？
 
-- [项目目标](#项目目标)
-- [快速开始](#快速开始)
-- [技术体系](#技术体系)
-- [学习与研究导航](#学习与研究导航)
-- [可运行实验](#可运行实验)
-- [工程验证原则](#工程验证原则)
-- [仓库结构](#仓库结构)
-- [贡献与维护](#贡献与维护)
+自动驾驶看起来很复杂，其实可以拆成一系列容易理解的问题：
 
-## 项目目标
+- **车在哪里？** 定位、地图、GNSS、IMU、SLAM
+- **周围有什么？** 摄像头、激光雷达、毫米波雷达、目标检测
+- **其他交通参与者会怎么动？** 目标跟踪与运动预测
+- **车应该怎么走？** 行为决策、路径规划、轨迹优化
+- **怎样平稳地开过去？** 车辆运动学与控制
+- **如何知道方案是否有效？** 数据集、仿真、指标、测试和回归验证
 
-本仓库以自动驾驶系统的典型数据流和工程流程为主线，重点建设以下内容：
+本仓库把这些主题组织成一份**中文自动驾驶学习地图**：不仅收集值得阅读的 GitHub 项目，也尽量提供通俗解释、循序渐进的路线、可运行的 Python 小实验，以及可复查的验证方法。
 
-| 建设方向 | 内容范围 | 目标 |
-|---|---|---|
-| 系统化学习 | 学习路线、主题导航、问题库 | 建立从基础知识到系统架构的整体认知 |
-| 开源工程 | ROS 2、Autoware、Apollo、CARLA 等 | 理解真实项目的模块边界、接口与工程组织 |
-| 算法实践 | 状态估计、坐标变换、传感器融合、轨迹跟踪 | 用小型实验理解算法假设与行为 |
-| 研究阅读 | 论文主题、数据集、评测基准 | 建立从论文阅读到实验复现的工作流 |
-| 验证与复现 | 单元测试、持续集成、仿真场景记录 | 让实验结果更容易复查、比较和回归 |
+> 这是一份持续建设的学习与研究资料库，不是可直接用于真实道路驾驶的自动驾驶系统。项目列表不代表所有外部项目均已在本仓库环境中运行验证。
 
-## 快速开始
-
-建议按照以下顺序使用仓库：
-
-1. **建立全局认知**：阅读[学习路线](docs/learning-roadmap.md)，了解各阶段的先修知识与实践目标。
-2. **选择技术主题**：从[资源导航](docs/resources.md)和[自动驾驶 1000 问](docs/1000-questions.md)中确定当前问题。
-3. **运行最小实验**：先阅读[实验目录](labs/README.md)，再运行对应的示例程序。
-4. **验证行为**：执行单元测试，检查输入边界、数值结果与算法假设。
-5. **扩展到仿真**：参考 [CARLA 场景复现指南](docs/carla-reproducibility.md)，记录环境、场景、种子和评价指标。
-
-### 环境要求
-
-- Python 3.11 或 3.12（持续集成目前针对这两个版本进行验证）。
-- 基础实验优先使用 Python 标准库，不需要额外安装第三方依赖。
-- CARLA 相关内容目前以实验规范和场景记录模板为主；实际仿真需要另行安装与配置匹配版本的 CARLA 及相关工具。
-
-### 运行实验与测试
-
-在仓库根目录执行：
-
-```bash
-# 运行单元测试
-python -m unittest discover -s labs/python -p 'test_*.py' -v
-
-# 运行状态估计示例
-python labs/python/kalman_1d.py
-
-# 运行二维坐标变换示例
-python labs/python/coordinate_transform_2d.py
-
-# 运行基础与鲁棒传感器融合示例
-python labs/python/sensor_fusion_1d.py
-python labs/python/sensor_fusion_robust.py
-python labs/python/sensor_fusion_timing_covariance.py
-
-# 运行 Pure Pursuit 控制与参数扫描
-python labs/python/pure_pursuit.py
-python labs/python/pure_pursuit_sweep.py
-```
-
-相关代码变更会触发 [Python Labs GitHub Actions](.github/workflows/python-labs.yml)，在 Python 3.11 和 3.12 环境中执行单元测试并运行实验脚本。请以工作流页面展示的最新运行结果为准。
-
-## 技术体系
-
-下图展示本仓库采用的学习与工程理解框架。实际系统的模块边界、执行顺序和数据依赖会因项目架构而有所不同。
+## 🗺️ 一张图看懂自动驾驶
 
 ```mermaid
-flowchart TB
-    subgraph A["01 · 基础能力"]
-        A1["数学与概率统计"]
-        A2["C++ / Python / Linux"]
-        A3["机器人基础与车辆运动学"]
-    end
-
-    subgraph B["02 · 数据与基础设施"]
-        B1["ROS 2 / 通信 / TF"]
-        B2["Camera / LiDAR / Radar"]
-        B3["IMU / GNSS / 时间同步"]
-    end
-
-    subgraph C["03 · 核心算法"]
-        C1["感知与目标跟踪"]
-        C2["定位与建图"]
-        C3["多传感器融合"]
-        C4["行为预测"]
-        C5["规划与决策"]
-        C6["车辆控制"]
-    end
-
-    subgraph D["04 · 系统工程"]
-        D1["接口与模块集成"]
-        D2["仿真与场景测试"]
-        D3["指标评估与回归验证"]
-        D4["部署、监控与持续改进"]
-    end
-
-    A --> B
-    B --> C
-    C1 --> C4
-    C2 --> C5
-    C3 --> C1
-    C3 --> C2
-    C4 --> C5
-    C5 --> C6
-    C6 --> D1
-    D1 --> D2
-    D2 --> D3
-    D3 --> D4
-    D3 -. "问题反馈" .-> C
+flowchart TD
+    A["传感器采集<br/>Camera · LiDAR · Radar · GNSS · IMU"] --> B["感知：周围有什么？"]
+    A --> C["定位：车辆在哪里？"]
+    B --> D["预测：其他人接下来会怎样？"]
+    C --> E["规划：车辆应该走哪条路？"]
+    D --> E
+    E --> F["控制：方向盘和速度如何调整？"]
+    F --> G["仿真、测试与安全验证"]
+    G -. "发现问题，持续改进" .-> B
 ```
 
-## 学习与研究导航
+这是一张便于入门的概念图。真实系统的模块划分、数据流和执行顺序会因项目与架构而不同。
 
-| 文档 | 主要内容 | 推荐用途 |
+## 🚀 新手从哪里开始？
+
+不需要一开始就读懂几十万行代码。按下面的顺序，每一步做出一个小成果即可。
+
+| 阶段 | 学什么 | 建议完成的小目标 |
 |---|---|---|
-| [学习路线](docs/learning-roadmap.md) | 分阶段学习目标与实践路径 | 制定学习计划 |
-| [资源导航](docs/resources.md) | 官方文档、课程与主题资源 | 查找可靠资料 |
-| [开源工程实践](docs/open-source-projects.md) | 主流开源项目与实践入口 | 从阅读资料转向工程代码 |
-| [论文与研究方向](docs/papers-and-research.md) | 研究主题、论文阅读与复现思路 | 跟进算法研究 |
-| [数据集与评测基准](docs/datasets-and-benchmarks.md) | 公开数据集、评价指标与使用注意事项 | 设计实验和比较结果 |
-| [自动驾驶 1000 问](docs/1000-questions.md) | 按主题组织的工程问题与思考问题 | 构建问题驱动的知识体系 |
-| [可运行实验](labs/README.md) | 实验索引、运行命令与记录方法 | 理解算法并验证实现 |
-| [CARLA 场景复现指南](docs/carla-reproducibility.md) | 场景配置、指标记录与回归流程 | 规划可复现的仿真实验 |\n| [工程实践手册](docs/engineering-playbook.md) | 模块接口检查、融合、控制、故障定位与实验记录 | 工程化学习与排查问题 |\n| [数据集选型矩阵](docs/dataset-selection-matrix.md) | 数据集任务映射、评测指标与数据使用清单 | 研究选题与评测设计 |
-| [贡献与维护原则](CONTRIBUTING.md) | 内容组织、提交与维护规范 | 参与完善知识库 |\n| [工程实践手册](docs/engineering-playbook.md) | 模块接口、传感器融合、控制算法、调试流程与实验模板 | 从概念学习进阶到工程验证 |
-| [数据集选型与评测矩阵](docs/dataset-selection-matrix.md) | 按任务选数据集、常见指标、许可检查与评测流程 | 选择研究数据并建立可比较基线 |
+| 01 · 编程基础 | Python、C++ 基础、Linux、Git | 能运行示例、读懂函数和配置 |
+| 02 · 数学与车辆 | 向量、矩阵、概率、坐标系、车辆运动学 | 写出二维坐标变换 |
+| 03 · 机器人基础 | ROS 2、Topic、TF、时间戳 | 理解节点如何交换传感器数据 |
+| 04 · 感知与融合 | 图像、点云、检测、跟踪、传感器融合 | 跑通一个公开数据集基线 |
+| 05 · 定位与规划 | GNSS/IMU、SLAM、路径与轨迹规划 | 理解定位结果如何影响规划 |
+| 06 · 控制与仿真 | Pure Pursuit、PID、CARLA 场景 | 在仿真中记录轨迹和误差 |
+| 07 · 系统工程 | 集成、测试、评测、部署与安全 | 写出可复现的实验报告 |
 
-### 官方项目与一手资料
+**推荐入口：** [分阶段学习路线](docs/learning-roadmap.md) · [自动驾驶 1000 问](docs/1000-questions.md) · [优质资源导航](docs/resources.md)
 
-- **自动驾驶软件栈**：[Autoware](https://github.com/autowarefoundation/autoware) · [Autoware 文档](https://docs.autoware.org/) · [Apollo](https://github.com/ApolloAuto/apollo) · [Apollo 开发者平台](https://apollo.baidu.com/)
-- **仿真与场景测试**：[CARLA](https://github.com/carla-simulator/carla) · [CARLA 文档](https://carla.readthedocs.io/) · [Scenario Runner](https://github.com/carla-simulator/scenario_runner)
-- **机器人中间件**：[ROS 2 官方教程](https://docs.ros.org/en/rolling/Tutorials.html)
-- **三维感知框架**：[OpenPCDet](https://github.com/open-mmlab/OpenPCDet) · [MMDetection3D](https://github.com/open-mmlab/mmdetection3d)
-- **公开数据集**：[KITTI](https://www.cvlibs.net/datasets/kitti/) · [SemanticKITTI](https://semantic-kitti.org/) · [Cityscapes](https://www.cityscapes-dataset.com/) · [nuScenes](https://www.nuscenes.org/) · [Waymo Open Dataset](https://waymo.com/open/) · [Argoverse 2](https://www.argoverse.org/av2.html) · [BDD100K](https://www.vis.xyz/bdd100k/) · [ONCE](https://once-for-auto-driving.github.io/) · [PandaSet](https://scale.com/open-datasets/pandaset) · [Zenseact Open Dataset](https://zod.zenseact.com/) · [DAIR-V2X](https://thudair.baai.ac.cn/) · [Oxford RobotCar](https://robotcar-dataset.robots.ox.ac.uk/) · 更多见 [数据集总览](docs/datasets-and-benchmarks.md) 与 [选型矩阵](docs/dataset-selection-matrix.md)
+## 🧭 按目标找项目
 
-以上链接用于学习与研究导航。具体功能、维护状态、版本兼容性和使用许可，请以各项目发布的官方说明为准。
+以下是适合建立知识地图的代表性开源项目。请将它们视为学习入口，而不是简单的排行榜。
 
-## 可运行实验
+| 我想学习什么 | 从这些项目开始 | 为什么值得看 |
+|---|---|---|
+| 完整自动驾驶软件栈 | [Apollo](https://github.com/ApolloAuto/apollo)、[Autoware](https://github.com/autowarefoundation/autoware) | 了解模块如何组成系统 |
+| 驾驶仿真与场景测试 | [CARLA](https://github.com/carla-simulator/carla)、[Scenario Runner](https://github.com/carla-simulator/scenario_runner) | 在可控场景里观察车辆行为 |
+| ROS 2 系统通信 | [ROS 2](https://github.com/ros2/ros2)、[Autoware Universe](https://github.com/autowarefoundation/autoware_universe) | 学习节点、消息、接口和集成 |
+| 激光雷达 3D 检测 | [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)、[MMDetection3D](https://github.com/open-mmlab/mmdetection3d) | 从数据配置走到模型评估 |
+| 多传感器 / BEV 感知 | [BEVFusion](https://github.com/mit-han-lab/bevfusion)、[UniAD](https://github.com/OpenDriveLab/UniAD) | 理解多模态融合和统一任务研究 |
+| 定位与 SLAM | [SLAM in Autonomous Driving](https://github.com/gaoxiang12/slam_in_autonomous_driving) | 结合代码理解定位建图 |
+| 端到端驾驶研究 | [OpenDriveLab](https://github.com/OpenDriveLab/End-to-end-Autonomous-Driving)、[DriveLM](https://github.com/OpenDriveLab/DriveLM) | 了解端到端方法与驾驶推理研究 |
+| 真实车辆软件项目 | [openpilot](https://github.com/commaai/openpilot) | 观察真实软件工程、模型和车辆接口的组织方式 |
 
-当前实验以小规模、可检查的示例为主，目的是帮助理解算法原理和验证基础行为，不代表完整的量产级实现。
+更多项目按类别整理在 [GitHub 优质项目清单](docs/resources.md) 与 [开源工程实践指南](docs/open-source-projects.md)。外部项目的活跃度、依赖、许可证和硬件要求可能变化，使用前请查看其最新文档。
 
-<p align="center">
-  <img src="docs/assets/sensor-fusion-flow.svg" alt="传感器融合实验流程：观测、时间对齐、质量检查、融合与指标评估" width="100%" />
-</p>
+## 🧪 先运行几个小实验
 
-### 从问题到可复现实验
+本仓库提供一些不依赖大型模型或 GPU 的 Python 基础实验。它们帮助你理解核心概念，再逐步过渡到完整框架。
+
+### 环境
+
+建议使用 Python 3.11 或 3.12。基础实验尽量使用 Python 标准库。
+
+```bash
+# 运行全部 Python 单元测试
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+
+# 理解卡尔曼滤波：如何根据带噪声的观测估计状态
+python labs/python/kalman_1d.py
+
+# 理解坐标系：如何把点从一个坐标系变换到另一个坐标系
+python labs/python/coordinate_transform_2d.py
+
+# 理解融合：多个带有不同不确定性的观测如何组合
+python labs/python/sensor_fusion_1d.py
+
+# 观察异常值处理
+python labs/python/sensor_fusion_robust.py
+
+# 理解车辆轨迹跟踪
+python labs/python/pure_pursuit.py
+```
+
+实验目录和每个脚本的用途见 [labs/README.md](labs/README.md)。执行结果以本地实际运行输出为准。
+
+## 🔬 从“看懂”到“会验证”
+
+学习一个算法时，建议每次都回答这 6 个问题：
+
+1. **输入是什么？** 单位、坐标系、时间戳和数据格式分别是什么？
+2. **输出是什么？** 输出代表什么物理量，单位是什么？
+3. **依赖哪些假设？** 例如噪声模型、车辆模型或传感器安装位置。
+4. **怎样衡量好坏？** 选择与任务对应的指标，而不只看一张效果图。
+5. **失败时会怎样？** 检查异常输入、延迟、丢帧、遮挡和极端场景。
+6. **别人能复现吗？** 记录代码版本、数据集、配置、依赖和运行命令。
 
 ```mermaid
 flowchart LR
-    A[定义问题与假设] --> B[准备数据与基线]
-    B --> C[实现最小算法]
-    C --> D[单元测试与边界检查]
-    D --> E[运行实验并记录指标]
-    E --> F{结果可复现？}
-    F -- 是 --> G[记录结论与局限]
-    F -- 否 --> H[定位差异与失败案例]
-    H --> C
-    G --> I[持续集成与回归验证]
+    A["提出问题"] --> B["建立简单基线"]
+    B --> C["运行实验"]
+    C --> D["检查指标与失败案例"]
+    D --> E{"结果可复现？"}
+    E -- "否" --> F["检查环境、数据和假设"]
+    F --> C
+    E -- "是" --> G["记录结论与局限"]
 ```
 
-| 实验主题 | 主要内容 | 入口 |
-|---|---|---|
-| 状态估计 | 一维匀速模型 Kalman Filter | [代码](labs/python/kalman_1d.py) |
-| 坐标变换 | 二维齐次变换、矩阵组合与逆变换 | [代码](labs/python/coordinate_transform_2d.py) |
-| 基础传感器融合 | 基于测量方差的标量加权融合 | [代码](labs/python/sensor_fusion_1d.py) |
-| 鲁棒传感器融合 | 中位数 / MAD 异常值门控与加权融合 | [代码](labs/python/sensor_fusion_robust.py) |
-| 时间同步与相关噪声 | 时间偏差门控、已知协方差下的两观测融合 | [代码](labs/python/sensor_fusion_timing_covariance.py) |
-| 轨迹跟踪 | Pure Pursuit 转向计算与运动学演示 | [代码](labs/python/pure_pursuit.py) |
-| 控制参数评估 | 固定 / 速度自适应前视距离对比 | [代码](labs/python/pure_pursuit_sweep.py) |
-| 仿真实验规范 | CARLA 场景记录模板与回归方法 | [指南](docs/carla-reproducibility.md) |
+## 📚 仓库导航
 
-实验索引、测试文件和运行说明见 [labs/README.md](labs/README.md)。
+| 内容 | 你会找到什么 |
+|---|---|
+| [学习路线](docs/learning-roadmap.md) | 从编程基础到系统工程的分阶段路径 |
+| [优质资源导航](docs/resources.md) | GitHub 项目、官方文档、论文和数据集 |
+| [开源工程实践](docs/open-source-projects.md) | 如何选项目、读代码、做小实验 |
+| [论文与研究方向](docs/papers-and-research.md) | 研究主题和论文阅读方法 |
+| [数据集与评测](docs/datasets-and-benchmarks.md) | 数据集入口、任务与评价指标 |
+| [自动驾驶 1000 问](docs/1000-questions.md) | 按主题组织的学习问题 |
+| [实验目录](labs/README.md) | 可运行示例、命令与实验说明 |
+| [CARLA 复现实验指南](docs/carla-reproducibility.md) | 场景配置、记录和回归验证 |
+| [工程实践手册](docs/engineering-playbook.md) | 接口检查、故障定位和实验模板 |
+| [贡献指南](CONTRIBUTING.md) | 如何修正、补充和维护内容 |
 
-## 工程验证原则
+## 🧰 技术栈速览
 
-为提高内容的可信度和可复查性，仓库遵循以下原则：
+- **编程与计算：** Python、C++、Linux、Git、NumPy
+- **机器人基础设施：** ROS 2、TF2、rosbag
+- **感知：** OpenCV、PyTorch、OpenPCDet、MMDetection3D
+- **定位与建图：** GNSS、IMU、LiDAR SLAM、地图
+- **规划与控制：** 车辆运动学、轨迹优化、PID、Pure Pursuit
+- **仿真与验证：** CARLA、Scenario Runner、单元测试、持续集成
 
-1. **明确假设**：说明输入、输出、单位、坐标系、噪声模型和适用范围。
-2. **测试边界条件**：除正常输入外，覆盖非法参数、异常数值和退化场景。
-3. **记录实验环境**：尽可能保存代码版本、依赖版本、数据来源、配置和随机种子。
-4. **报告实际结果**：区分已运行验证、理论分析、待完成工作和预期目标，不以计划代替测试结果。
-5. **谨慎解释指标**：合成数据和简化运动学模型仅能支持有限结论；单次仿真成功不能证明真实道路安全。
-6. **尊重许可与安全边界**：遵守数据集、软件和模型的许可要求，不将教学实验直接用于实车控制。
+这不是要求一次性学完的技术清单。请根据当前阶段选择一项，先跑通、再理解、再扩展。
 
-## 仓库结构
+## ⚠️ 使用边界与许可
 
-```text
-AutomaticDriving/
-├── README.md
-├── CONTRIBUTING.md
-├── docs/
-│   ├── assets/
-│   │   ├── automatic-driving-banner.svg
-│   │   ├── sensor-fusion-flow.svg
-│   │   ├── learning-roadmap.svg
-│   │   ├── carla-validation-loop.svg
-│   │   ├── research-topic-map.svg
-│   │   └── dataset-selection.svg
-│   ├── learning-roadmap.md
-│   ├── resources.md
-│   ├── open-source-projects.md
-│   ├── papers-and-research.md
-│   ├── datasets-and-benchmarks.md
-│   ├── 1000-questions.md
-│   ├── questions/
-│   │   ├── README.md
-│   │   ├── foundations-and-sensors.md
-│   │   ├── perception-and-fusion.md
-│   │   ├── localization-and-mapping.md
-│   │   ├── prediction-planning-control.md
-│   │   └── simulation-evaluation-engineering.md
-│   └── carla-reproducibility.md
-├── labs/
-│   ├── README.md
-│   ├── python/
-│   │   ├── kalman_1d.py
-│   │   ├── coordinate_transform_2d.py
-│   │   ├── sensor_fusion_1d.py
-│   │   ├── sensor_fusion_robust.py
-│   │   ├── sensor_fusion_timing_covariance.py
-│   │   ├── pure_pursuit.py
-│   │   └── pure_pursuit_sweep.py
-│   └── carla/
-│       └── scenario-template.yaml
-└── .github/
-    └── workflows/
-        └── python-labs.yml
-```
+- 本仓库主要用于学习、研究与离线实验，不构成道路安全或功能安全认证。
+- 不要将教学脚本或未经充分验证的开源代码直接连接真实车辆或用于道路控制。
+- 使用外部代码、模型权重和数据集前，请分别核验代码许可证、权重条款和数据集许可。
+- 公开指标不等于真实道路表现；仿真成功也不能单独证明系统安全。
 
-## 贡献与维护
+## 🤝 一起完善这份学习地图
 
-欢迎通过 Issue 或 Pull Request 提交修正、补充实验、完善说明和更新资源。
+欢迎提交 Issue 或 Pull Request，补充高质量项目、中文解释、可复现实验和勘误。推荐提交时说明：
 
-提交内容建议包含：
-
-- 问题背景、修改目的与适用范围；
-- 官方文档或原始论文等可核验来源；
-- 可复现的运行命令、环境版本与测试结果；
-- 已知限制、许可证信息和后续改进方向。
-
-外部链接、项目版本和数据集政策可能发生变化，维护时应优先核验一手来源。仓库不会仅凭 Star 数、榜单排名或单一论文指标判断资源质量。
+- 项目解决什么问题，适合什么阶段；
+- 官方仓库、文档、论文与许可证；
+- 环境要求、运行方式和已知限制；
+- 为什么值得学习，以及建议从哪个文件开始读。
 
 ---
 
-**持续学习，重视验证；从算法原理出发，以可复现实验沉淀工程认知。**
+<p align="center">
+  <b>把问题拆小，把实验跑通，把结论讲清楚。</b><br/>
+  从入门开始，逐步建立自己的自动驾驶知识体系。
+</p>
