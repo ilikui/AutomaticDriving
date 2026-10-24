@@ -41,19 +41,11 @@
 
 ## 🗺️ 一张图看懂自动驾驶
 
-```mermaid
-flowchart TD
-    A["传感器采集<br/>Camera · LiDAR · Radar · GNSS · IMU"] --> B["感知：周围有什么？"]
-    A --> C["定位：车辆在哪里？"]
-    B --> D["预测：其他人接下来会怎样？"]
-    C --> E["规划：车辆应该走哪条路？"]
-    D --> E
-    E --> F["控制：方向盘和速度如何调整？"]
-    F --> G["仿真、测试与安全验证"]
-    G -. "发现问题，持续改进" .-> B
-```
+<p align="center">
+  <img src="docs/assets/autonomous-driving-architecture.svg" alt="自动驾驶系统架构图：传感器、感知定位预测、规划控制与仿真验证" width="100%" />
+</p>
 
-这是一张便于入门的概念图。真实系统的模块划分、数据流和执行顺序会因项目与架构而不同。
+这张图把自动驾驶拆成“观察世界 → 理解环境 → 决定怎么走 → 控制车辆 → 测试改进”几个环节。真实系统的模块划分、数据流和执行顺序会因项目与架构而不同。
 
 ## 🚀 新手从哪里开始？
 
@@ -70,6 +62,10 @@ flowchart TD
 | 07 · 系统工程 | 集成、测试、评测、部署与安全 | 写出可复现的实验报告 |
 
 **推荐入口：** [分阶段学习路线](docs/learning-roadmap.md) · [自动驾驶 1000 问](docs/1000-questions.md) · [优质资源导航](docs/resources.md)
+
+<p align="center">
+  <img src="docs/assets/learning-roadmap.svg" alt="自动驾驶七阶段学习路线图" width="100%" />
+</p>
 
 ## 🧭 按目标找项目
 
