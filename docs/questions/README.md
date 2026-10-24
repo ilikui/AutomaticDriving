@@ -24,7 +24,7 @@ flowchart TD
 | 专题 | 问题编号 | 学习重点 | 指南 |
 |---|---:|---|---|
 | 基础、数学与传感器 | 1–20、102、111–115 | 坐标系、概率、标定、时间戳与数据契约 | [打开](foundations-and-sensors.md) |
-| 感知与多传感器融合 | 31–50、116–120、143–145 | 检测指标、融合层级、关联、噪声与异常值 | [打开](perception-and-fusion.md) |
+| 感知与多传感器融合 | 31–50、116–120、143–145 | 检测指标、融合层级、关联、噪声与异常值 | [专题指南](perception-and-fusion.md) · [第 41–50 题详解](sensor-fusion-answers-41-50.md) |
 | 定位与建图 | 21–30、114–115 | GNSS/IMU、里程计、SLAM、配准与定位降级 | [打开](localization-and-mapping.md) |
 | 预测、规划与控制 | 51–70、124–130 | 轨迹预测、路径/速度规划、跟踪与车辆模型 | [打开](prediction-planning-control.md) |
 | 仿真、评测与工程验证 | 71–100、101–110、121–123、131–142、146–150 | 数据集、闭环评测、复现、测试和安全证据 | [打开](simulation-evaluation-engineering.md) |
