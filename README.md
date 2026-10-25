@@ -13,6 +13,7 @@
   <a href="docs/learning-roadmap.md">Learning Roadmap</a> ·
   <a href="docs/resources.md">Resource Directory</a> ·
   <a href="docs/open-source-projects.md">Project Studies</a> ·
+  <a href="docs/algorithm-cookbook.md">Algorithm Cookbook</a> ·
   <a href="docs/1000-questions.md">1000 Questions</a> ·
   <a href="labs/README.md">Practical Labs</a>
 </p>
@@ -104,6 +105,9 @@ python labs/python/sensor_fusion_robust.py
 
 # Geometric path tracking
 python labs/python/pure_pursuit.py
+
+# 2D detection-box IoU and greedy NMS
+python labs/python/iou_nms.py
 ```
 
 See [labs/README.md](labs/README.md) for scope and usage. Run commands in the repository root; results should be recorded from the actual environment rather than assumed in advance.
@@ -115,6 +119,7 @@ See [labs/README.md](labs/README.md) for scope and usage. Run commands in the re
 | [Learning roadmap](docs/learning-roadmap.md) | Staged curriculum from foundations to system engineering |
 | [Resource directory](docs/resources.md) | Open-source projects, official documentation, papers, and datasets |
 | [Open-source project studies](docs/open-source-projects.md) | Practical methods for reading and evaluating large repositories |
+| [Algorithm cookbook](docs/algorithm-cookbook.md) | Core formulas, assumptions, code entry points, and evaluation guidance |
 | [Research topics and papers](docs/papers-and-research.md) | Research directions and paper-reading guidance |
 | [Datasets and benchmarks](docs/datasets-and-benchmarks.md) | Dataset entry points, task definitions, and metrics |
 | [Dataset selection matrix](docs/dataset-selection-matrix.md) | Match research questions to data and evaluation protocols |
