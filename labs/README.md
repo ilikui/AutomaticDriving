@@ -110,6 +110,19 @@ python -m unittest discover -s labs/python -p 'test_*.py' -v
 
 协方差必须来自合理的噪声模型或数据估计；错误协方差可能让结果比单传感器更差。该示例仍不包含目标关联、跨坐标系变换或完整的多目标跟踪。
 
+## LAB-009：2D 检测框 IoU 与贪心 NMS
+
+代码：[`python/iou_nms.py`](python/iou_nms.py)，测试：[`python/test_iou_nms.py`](python/test_iou_nms.py)。
+
+本实验用纯 Python 实现轴对齐二维框的交并比（IoU）和按置信度排序的贪心非极大值抑制（NMS）。覆盖完全重合、无交集、部分交叠、零面积框、阈值边界、同分排序和非法输入等情况。框坐标使用连续坐标约定，不使用像素坐标中有时出现的 `+1` 规则；当前版本不区分类别，因此不同类别的框也可能相互抑制。
+
+```bash
+python labs/python/iou_nms.py
+python -m unittest discover -s labs/python -p 'test_*.py' -v
+```
+
+这是理解检测后处理的教学实现，不替代成熟检测框架中的 GPU 优化版本，也不代表完整的 3D NMS。
+
 ## 实验记录模板
 
 - **问题与假设：**
