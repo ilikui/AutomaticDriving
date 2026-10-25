@@ -43,3 +43,4 @@ jobs:
           python labs/python/sensor_fusion_timing_covariance.py
           python labs/python/pure_pursuit.py
           python labs/python/pure_pursuit_sweep.py
+          python labs/python/iou_nms.py
